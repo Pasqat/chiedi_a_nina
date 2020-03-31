@@ -27,7 +27,7 @@ class NinaDice extends StatefulWidget {
 }
 
 class _NinaDiceState extends State<NinaDice> {
-  int NumNina = 1;
+  int numNina = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +37,10 @@ class _NinaDiceState extends State<NinaDice> {
         FlatButton(
             onPressed: () {
               setState(() {
-                NumNina = Random().nextInt(6) + 1;
+                numNina = Random().nextInt(6) + 1;
               });
             },
-            child: Image.asset('images/nina$NumNina.png')),
+            child: Image.asset('images/nina$numNina.png')),
       ],
     );
   }
