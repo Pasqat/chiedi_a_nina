@@ -1,47 +1,20 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:chiedianina/screen/nina_Screen.dart';
+import 'package:chiedianina/screen/welcome_screen.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: NinaRisponde(),
-  ));
-}
 
-class NinaRisponde extends StatelessWidget {
+void main() => runApp(ChiediA());
+
+class ChiediA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.cyan[200],
-      appBar: AppBar(
-        title: Text('Chiedi a Nina qualsiasi cosa'),
-        backgroundColor: Colors.brown[300],
-      ),
-      body: NinaDice(),
-    );
-  }
-}
-
-class NinaDice extends StatefulWidget {
-  @override
-  _NinaDiceState createState() => _NinaDiceState();
-}
-
-class _NinaDiceState extends State<NinaDice> {
-  int numNina = 1;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        FlatButton(
-            onPressed: () {
-              setState(() {
-                numNina = Random().nextInt(6) + 1;
-              });
-            },
-            child: Image.asset('images/nina$numNina.png')),
-      ],
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: WelcomeScreen.id,
+      routes: {
+        WelcomeScreen.id: (context) => WelcomeScreen(),
+        NinaScreen.id: (context) => NinaDice(),
+      }
     );
   }
 }
