@@ -1,45 +1,47 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+class NinaScreen extends StatefulWidget {
+  static const id = 'nina_screen';
 
-class NinaScreen extends StatelessWidget {
+  @override
+  _NinaScreenState createState() => _NinaScreenState();
+}
 
-static const id = 'nina_screen';
-
+class _NinaScreenState extends State<NinaScreen> {
+  int numNina = 1;
+//   String fraseRan;
+// List<String> frasiNina = [
+//   'SI',
+//   'Non dovresti neanche chiederlo',
+//   'Solo UNA però',
+//   'NO',
+//   'Chiedimelo di nuovo più tardi',
+//   'Non ne ho idea',
+// ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.cyan[200],
+      backgroundColor: Colors.lightBlueAccent,
       appBar: AppBar(
+        backgroundColor: Colors.orangeAccent,
         title: Text('Chiedi a Nina qualsiasi cosa'),
-        backgroundColor: Colors.brown[300],
       ),
-      body: NinaDice(),
-    );
-  }
-}
-
-class NinaDice extends StatefulWidget {
-  @override
-  _NinaDiceState createState() => _NinaDiceState();
-}
-
-class _NinaDiceState extends State<NinaDice> {
-  int numNina = 1;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        FlatButton(
-            onPressed: () {
-              setState(() {
-                numNina = Random().nextInt(6) + 1;
-              });
-            },
-            child: Image.asset('images/nina$numNina.png')),
-      ],
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          // Text(fraseRan),
+          FlatButton(
+              onPressed: () {
+                setState(() {
+                  // fraseRan = frasiNina[Random().nextInt(frasiNina.length)];
+                  numNina = Random().nextInt(6) + 1;
+                });
+              },
+              child: Image.asset('images/nina$numNina.png')),
+              
+        ],
+      ),
     );
   }
 }
