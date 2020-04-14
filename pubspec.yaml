@@ -25,3 +25,9 @@ flutter:
 
   assets:
     - images/
+
+  fonts:
+  - family: Inkfree
+    fonts:
+    - asset: fonts/Inkfree.ttf
+
